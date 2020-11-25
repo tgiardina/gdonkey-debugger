@@ -1,0 +1,32 @@
+{
+  "description": "Helps debug GDonkey's extension",
+  "manifest_version": 2,
+  "name": "GDonkey Translator Debugger",
+  "version": "0.1.0",
+  "icons": {
+    "128": "images/icon-128.png"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "debug@gdonkey.com"
+    }
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "all_frames": true,
+      "run_at": "document_start",
+      "js": ["content.js"]
+    }
+  ],
+
+  "permissions": ["storage", "webRequest", "webRequestBlocking", "<all_urls>"],
+
+  "web_accessible_resources": ["<all_urls>"]
+}
